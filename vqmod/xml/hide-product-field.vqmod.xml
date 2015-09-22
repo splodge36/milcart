@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+   <id>Hide Product Fields</id>
+   <version>1.0</version>
+   <vqmver>2.X</vqmver>
+   <author>Rhodri James</author>
+   <file name="admin/view/template/catalog/product_form.tpl">
+       <operation>
+           <search position="replace" index="6,7,8,9,10,11,12,15,19,20,22,23"><![CDATA[
+            <div class="form-group">
+            ]]></search>
+           <add><![CDATA[
+            <div class="form-group" style="display: none;">
+            ]]></add>
+       </operation>
+   </file>
+   <file name="admin/view/template/catalog/product_form.tpl">
+       <operation>
+           <search position="replace" index="3"><![CDATA[
+            <div class="form-group required">
+            ]]></search>
+           <add><![CDATA[
+            <div class="form-group required" style="display: none;">
+            ]]></add>
+       </operation>
+   </file>
+</modification>
