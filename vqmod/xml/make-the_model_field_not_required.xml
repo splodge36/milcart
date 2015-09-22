@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+
+	<id>Make the model field not required</id>
+	<version>1.0.0</version>
+	<vqmver>2.x</vqmver>
+	<author>Rhodri James</author>
+
+	<file name="admin/controller/catalog/product.php" error="log">
+		<operation>
+			<search position="replace"><![CDATA[if ((utf8_strlen($this->request->post['model']) < 1) || (utf8_strlen($this->request->post['model']) > 64)) {]]></search>
+			<add><![CDATA[   
+			if (0){
+			]]></add>
+		</operation>
+	</file>
+</modification>
+
