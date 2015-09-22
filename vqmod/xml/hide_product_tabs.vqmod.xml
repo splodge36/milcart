@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+   <id>Hide Product Tabs</id>
+   <version>1.0</version>
+   <vqmver>2.X</vqmver>
+   <author>Rhodri James</author>
+   <file name="admin/view/template/catalog/product_form.tpl">
+    <operation>
+        <search position="replace"><![CDATA[
+          tab-reward"
+          ]]></search>
+        <add><![CDATA[
+          tab-reward" style="display: none"
+          ]]></add>
+     </operation>
+    <operation>
+        <search position="replace"><![CDATA[
+          tab-design"
+          ]]></search>
+        <add><![CDATA[
+          tab-design" style="display: none"
+          ]]></add>
+     </operation>
+    <operation>
+        <search position="replace"><![CDATA[
+          tab-special"
+          ]]></search>
+        <add><![CDATA[
+          tab-special" style="display: none"
+          ]]></add>
+     </operation>
+    <operation>
+        <search position="replace"><![CDATA[
+          tab-discount"
+          ]]></search>
+        <add><![CDATA[
+          tab-discount" style="display: none"
+          ]]></add>
+     </operation>
+    <operation>
+        <search position="replace"><![CDATA[
+          tab-recurring"
+          ]]></search>
+        <add><![CDATA[
+          tab-recurring" style="display: none"
+          ]]></add>
+     </operation>
+    <operation>
+        <search position="replace"><![CDATA[
+          tab-attribute"
+          ]]></search>
+        <add><![CDATA[
+          tab-attribute" style="display: none"
+          ]]></add>
+     </operation>
+    </file>
+</modification>
