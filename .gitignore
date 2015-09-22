@@ -3,3 +3,7 @@ image/data/
 image/cache/
 system/cache/
 system/logs/
+
+vqmod/vqcache/
+vqmod/checked.cache
+vqmod/mods.cache
