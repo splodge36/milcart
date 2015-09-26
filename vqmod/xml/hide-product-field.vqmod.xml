@@ -6,7 +6,7 @@
    <author>Rhodri James</author>
    <file name="admin/view/template/catalog/product_form.tpl">
        <operation>
-           <search position="replace" index="6,7,8,9,10,11,12,15,19,20,22,23"><![CDATA[
+           <search position="replace" index="6,7,8,9,10,11,12,19,20,22,23"><![CDATA[
             <div class="form-group">
             ]]></search>
            <add><![CDATA[
