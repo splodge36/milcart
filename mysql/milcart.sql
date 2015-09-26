@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 26, 2015 at 12:49 PM
+-- Generation Time: Sep 26, 2015 at 04:11 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -346,14 +346,14 @@ CREATE TABLE IF NOT EXISTS `oc_category` (
 --
 
 INSERT INTO `oc_category` (`category_id`, `image`, `parent_id`, `top`, `column`, `sort_order`, `status`, `date_added`, `date_modified`) VALUES
-(61, '', 59, 1, 1, 2, 1, '2015-09-26 11:08:38', '2015-09-26 11:17:54'),
-(63, '', 59, 0, 1, 3, 1, '2015-09-26 11:18:57', '2015-09-26 11:18:57'),
-(60, '', 59, 1, 1, 1, 1, '2015-09-26 11:07:24', '2015-09-26 11:18:02'),
-(64, '', 59, 0, 1, 4, 1, '2015-09-26 11:19:45', '2015-09-26 11:45:47'),
-(65, '', 0, 1, 1, 2, 1, '2015-09-26 11:22:12', '2015-09-26 11:22:12'),
-(68, '', 65, 0, 1, 3, 1, '2015-09-26 11:25:05', '2015-09-26 11:25:05'),
-(67, '', 65, 0, 1, 2, 1, '2015-09-26 11:24:36', '2015-09-26 11:24:36'),
-(66, '', 65, 0, 1, 1, 1, '2015-09-26 11:23:41', '2015-09-26 11:23:41'),
+(61, '', 59, 1, 1, 2, 1, '2015-09-26 11:08:38', '2015-09-26 12:06:36'),
+(63, '', 59, 0, 1, 3, 1, '2015-09-26 11:18:57', '2015-09-26 13:55:38'),
+(60, '', 59, 1, 1, 1, 1, '2015-09-26 11:07:24', '2015-09-26 12:06:53'),
+(64, '', 59, 0, 1, 4, 1, '2015-09-26 11:19:45', '2015-09-26 14:02:23'),
+(65, '', 0, 1, 1, 2, 1, '2015-09-26 11:22:12', '2015-09-26 12:07:38'),
+(68, '', 65, 0, 1, 3, 1, '2015-09-26 11:25:05', '2015-09-26 12:08:13'),
+(67, '', 65, 0, 1, 2, 1, '2015-09-26 11:24:36', '2015-09-26 12:07:56'),
+(66, '', 65, 0, 1, 1, 1, '2015-09-26 11:23:41', '2015-09-26 13:49:51'),
 (59, '', 0, 1, 1, 1, 1, '2015-09-26 11:06:13', '2015-09-26 11:44:24');
 
 -- --------------------------------------------------------
@@ -380,7 +380,7 @@ CREATE TABLE IF NOT EXISTS `oc_category_description` (
 
 INSERT INTO `oc_category_description` (`category_id`, `language_id`, `name`, `description`, `meta_title`, `meta_description`, `meta_keyword`) VALUES
 (60, 1, 'Rifles', '&lt;p&gt;&lt;br&gt;&lt;/p&gt;', 'Deactived Rifles', '', ''),
-(63, 1, 'Sub Machine Guns ', '&lt;p&gt;&lt;br&gt;&lt;/p&gt;', 'Sub Machine Guns', '', ''),
+(63, 1, 'Sub Machine Guns', '&lt;p&gt;&lt;br&gt;&lt;/p&gt;', 'Sub Machine Guns', '', ''),
 (64, 1, 'Machine Guns', '&lt;p&gt;&lt;br&gt;&lt;/p&gt;', 'Machine Guns', '', ''),
 (61, 1, 'Pistols', '&lt;p&gt;&lt;br&gt;&lt;/p&gt;', 'Deactived Hand Guns', '', ''),
 (65, 1, 'Edged Weapons', '&lt;p&gt;&lt;br&gt;&lt;/p&gt;', 'Edged Weapons', '', ''),
@@ -865,8 +865,8 @@ CREATE TABLE IF NOT EXISTS `oc_currency` (
 --
 
 INSERT INTO `oc_currency` (`currency_id`, `title`, `code`, `symbol_left`, `symbol_right`, `decimal_place`, `value`, `status`, `date_modified`) VALUES
-(1, 'Pound Sterling', 'GBP', '£', '', '2', 0.65880001, 1, '2015-09-26 11:58:31'),
-(2, 'US Dollar', 'USD', '$', '', '2', 1.00000000, 1, '2015-09-26 12:41:39'),
+(1, 'Pound Sterling', 'GBP', '£', '', '2', 1.00000000, 1, '2015-09-26 16:10:24'),
+(2, 'US Dollar', 'USD', '$', '', '2', 1.00000000, 1, '2015-09-26 15:53:32'),
 (3, 'Euro', 'EUR', '', '€', '2', 0.89330000, 1, '2015-09-26 11:58:31');
 
 -- --------------------------------------------------------
@@ -1223,7 +1223,15 @@ CREATE TABLE IF NOT EXISTS `oc_filter` (
   `filter_group_id` int(11) NOT NULL,
   `sort_order` int(3) NOT NULL,
   PRIMARY KEY (`filter_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `oc_filter`
+--
+
+INSERT INTO `oc_filter` (`filter_id`, `filter_group_id`, `sort_order`) VALUES
+(2, 1, 0),
+(1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -1239,6 +1247,14 @@ CREATE TABLE IF NOT EXISTS `oc_filter_description` (
   PRIMARY KEY (`filter_id`,`language_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `oc_filter_description`
+--
+
+INSERT INTO `oc_filter_description` (`filter_id`, `language_id`, `filter_group_id`, `name`) VALUES
+(2, 1, 1, 'Post 1995 (New Spec)'),
+(1, 1, 1, 'Pre 1995 (Old Spec)');
+
 -- --------------------------------------------------------
 
 --
@@ -1249,7 +1265,14 @@ CREATE TABLE IF NOT EXISTS `oc_filter_group` (
   `filter_group_id` int(11) NOT NULL AUTO_INCREMENT,
   `sort_order` int(3) NOT NULL,
   PRIMARY KEY (`filter_group_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `oc_filter_group`
+--
+
+INSERT INTO `oc_filter_group` (`filter_group_id`, `sort_order`) VALUES
+(1, 1);
 
 -- --------------------------------------------------------
 
@@ -1263,6 +1286,13 @@ CREATE TABLE IF NOT EXISTS `oc_filter_group_description` (
   `name` varchar(64) NOT NULL,
   PRIMARY KEY (`filter_group_id`,`language_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `oc_filter_group_description`
+--
+
+INSERT INTO `oc_filter_group_description` (`filter_group_id`, `language_id`, `name`) VALUES
+(1, 1, 'Date of Deactivation');
 
 -- --------------------------------------------------------
 
@@ -1333,10 +1363,10 @@ CREATE TABLE IF NOT EXISTS `oc_information_description` (
 --
 
 INSERT INTO `oc_information_description` (`information_id`, `language_id`, `title`, `description`, `meta_title`, `meta_description`, `meta_keyword`) VALUES
-(4, 1, 'About Us', '&lt;p&gt;\r\n	About Us&lt;/p&gt;\r\n', '', '', ''),
-(5, 1, 'Terms &amp; Conditions', '&lt;p&gt;\r\n	Terms &amp;amp; Conditions&lt;/p&gt;\r\n', '', '', ''),
-(3, 1, 'Privacy Policy', '&lt;p&gt;\r\n	Privacy Policy&lt;/p&gt;\r\n', '', '', ''),
-(6, 1, 'Delivery Information', '&lt;p&gt;\r\n	Delivery Information&lt;/p&gt;\r\n', '', '', '');
+(4, 1, 'About Us', '&lt;p&gt;\r\n	About Us&lt;/p&gt;\r\n', 'About Us', '', ''),
+(5, 1, 'Terms &amp; Conditions', '&lt;p&gt;\r\n	Terms &amp;amp; Conditions&lt;/p&gt;\r\n', 'Terms &amp; Conditions', '', ''),
+(3, 1, 'Privacy Policy', '&lt;p&gt;\r\n	Privacy Policy&lt;/p&gt;\r\n', 'Privacy Policy', '', ''),
+(6, 1, 'Delivery Information', '&lt;p&gt;\r\n	Delivery Information&lt;/p&gt;\r\n', 'Delivery Information', '', '');
 
 -- --------------------------------------------------------
 
@@ -1350,6 +1380,16 @@ CREATE TABLE IF NOT EXISTS `oc_information_to_layout` (
   `layout_id` int(11) NOT NULL,
   PRIMARY KEY (`information_id`,`store_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `oc_information_to_layout`
+--
+
+INSERT INTO `oc_information_to_layout` (`information_id`, `store_id`, `layout_id`) VALUES
+(4, 0, 0),
+(6, 0, 0),
+(3, 0, 0),
+(5, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -1556,7 +1596,7 @@ CREATE TABLE IF NOT EXISTS `oc_location` (
   `comment` text NOT NULL,
   PRIMARY KEY (`location_id`),
   KEY `name` (`name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -2095,14 +2135,14 @@ CREATE TABLE IF NOT EXISTS `oc_product` (
   `date_added` datetime NOT NULL,
   `date_modified` datetime NOT NULL,
   PRIMARY KEY (`product_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=50 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=51 ;
 
 --
 -- Dumping data for table `oc_product`
 --
 
 INSERT INTO `oc_product` (`product_id`, `model`, `sku`, `upc`, `ean`, `jan`, `isbn`, `mpn`, `location`, `quantity`, `stock_status_id`, `image`, `manufacturer_id`, `shipping`, `price`, `points`, `tax_class_id`, `date_available`, `weight`, `weight_class_id`, `length`, `width`, `height`, `length_class_id`, `subtract`, `minimum`, `sort_order`, `status`, `viewed`, `date_added`, `date_modified`) VALUES
-(30, 'Product 3', '', '', '', '', '', '', '', 7, 6, 'catalog/demo/canon_eos_5d_1.jpg', 9, 1, '100.0000', 0, 9, '2009-02-03', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 0, 1, 0, '2009-02-03 16:59:00', '2011-09-30 01:05:23');
+(50, '', '', '', '', '', '', '', '', 1, 9, 'catalog/carbin-1.png', 0, 1, '666.6600', 0, 9, '2015-09-26', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, 7, '2015-09-26 14:47:35', '2015-09-26 14:50:26');
 
 -- --------------------------------------------------------
 
@@ -2142,7 +2182,7 @@ CREATE TABLE IF NOT EXISTS `oc_product_description` (
 --
 
 INSERT INTO `oc_product_description` (`product_id`, `language_id`, `name`, `description`, `tag`, `meta_title`, `meta_description`, `meta_keyword`) VALUES
-(30, 1, 'Canon EOS 5D', '&lt;p&gt;\r\n	Canon''s press material for the EOS 5D states that it ''defines (a) new D-SLR category'', while we''re not typically too concerned with marketing talk this particular statement is clearly pretty accurate. The EOS 5D is unlike any previous digital SLR in that it combines a full-frame (35 mm sized) high resolution sensor (12.8 megapixels) with a relatively compact body (slightly larger than the EOS 20D, although in your hand it feels noticeably ''chunkier''). The EOS 5D is aimed to slot in between the EOS 20D and the EOS-1D professional digital SLR''s, an important difference when compared to the latter is that the EOS 5D doesn''t have any environmental seals. While Canon don''t specifically refer to the EOS 5D as a ''professional'' digital SLR it will have obvious appeal to professionals who want a high quality digital SLR in a body lighter than the EOS-1D. It will also no doubt appeal to current EOS 20D owners (although lets hope they''ve not bought too many EF-S lenses...) äë&lt;/p&gt;\r\n', '', '', '', '');
+(50, 1, 'M1A1 Paratrooper Carbine', '&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus \r\ntempus laoreet sagittis. Lorem ipsum dolor sit amet, consectetur \r\nadipiscing elit. Proin nisi nisl, laoreet eget sodales sit amet, \r\nvenenatis ut nulla. Donec quis gravida elit. Vestibulum elementum enim \r\ndolor, nec semper libero tincidunt volutpat. Donec nec ultrices sem. \r\nCurabitur quam nisl, molestie vitae faucibus ac, venenatis et eros. \r\nPellentesque vitae nisi ex. Vivamus nibh ante, dapibus et rutrum ut, \r\nplacerat non nisi. In sed augue ornare massa dictum porttitor vitae id \r\nante. Pellentesque eu gravida turpis, vitae rutrum mauris. Mauris elit \r\nlibero, viverra pulvinar lacinia eget, ultrices in odio.\r\n&lt;/p&gt;', '', 'M1A1 Paratrooper Carbine', '', '');
 
 -- --------------------------------------------------------
 
@@ -2175,6 +2215,13 @@ CREATE TABLE IF NOT EXISTS `oc_product_filter` (
   PRIMARY KEY (`product_id`,`filter_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `oc_product_filter`
+--
+
+INSERT INTO `oc_product_filter` (`product_id`, `filter_id`) VALUES
+(50, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -2188,15 +2235,14 @@ CREATE TABLE IF NOT EXISTS `oc_product_image` (
   `sort_order` int(3) NOT NULL DEFAULT '0',
   PRIMARY KEY (`product_image_id`),
   KEY `product_id` (`product_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2352 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2366 ;
 
 --
 -- Dumping data for table `oc_product_image`
 --
 
 INSERT INTO `oc_product_image` (`product_image_id`, `product_id`, `image`, `sort_order`) VALUES
-(2345, 30, 'catalog/demo/canon_eos_5d_2.jpg', 0),
-(2344, 30, 'catalog/demo/canon_eos_5d_3.jpg', 0);
+(2365, 50, 'catalog/carbin-2.png', 0);
 
 -- --------------------------------------------------------
 
@@ -2212,13 +2258,6 @@ CREATE TABLE IF NOT EXISTS `oc_product_option` (
   `required` tinyint(1) NOT NULL,
   PRIMARY KEY (`product_option_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=227 ;
-
---
--- Dumping data for table `oc_product_option`
---
-
-INSERT INTO `oc_product_option` (`product_option_id`, `product_id`, `option_id`, `value`, `required`) VALUES
-(226, 30, 5, '', 1);
 
 -- --------------------------------------------------------
 
@@ -2242,14 +2281,6 @@ CREATE TABLE IF NOT EXISTS `oc_product_option_value` (
   `weight_prefix` varchar(1) NOT NULL,
   PRIMARY KEY (`product_option_value_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
-
---
--- Dumping data for table `oc_product_option_value`
---
-
-INSERT INTO `oc_product_option_value` (`product_option_value_id`, `product_option_id`, `product_id`, `option_id`, `option_value_id`, `quantity`, `subtract`, `price`, `price_prefix`, `points`, `points_prefix`, `weight`, `weight_prefix`) VALUES
-(16, 226, 30, 5, 40, 5, 1, '0.0000', '+', 0, '+', '0.00000000', '+'),
-(15, 226, 30, 5, 39, 2, 1, '0.0000', '+', 0, '+', '0.00000000', '+');
 
 -- --------------------------------------------------------
 
@@ -2288,14 +2319,7 @@ CREATE TABLE IF NOT EXISTS `oc_product_reward` (
   `customer_group_id` int(11) NOT NULL DEFAULT '0',
   `points` int(8) NOT NULL DEFAULT '0',
   PRIMARY KEY (`product_reward_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=546 ;
-
---
--- Dumping data for table `oc_product_reward`
---
-
-INSERT INTO `oc_product_reward` (`product_reward_id`, `product_id`, `customer_group_id`, `points`) VALUES
-(539, 30, 1, 200);
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=552 ;
 
 -- --------------------------------------------------------
 
@@ -2313,15 +2337,7 @@ CREATE TABLE IF NOT EXISTS `oc_product_special` (
   `date_end` date NOT NULL DEFAULT '0000-00-00',
   PRIMARY KEY (`product_special_id`),
   KEY `product_id` (`product_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=440 ;
-
---
--- Dumping data for table `oc_product_special`
---
-
-INSERT INTO `oc_product_special` (`product_special_id`, `product_id`, `customer_group_id`, `priority`, `price`, `date_start`, `date_end`) VALUES
-(439, 30, 1, 2, '90.0000', '0000-00-00', '0000-00-00'),
-(438, 30, 1, 1, '80.0000', '0000-00-00', '0000-00-00');
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=450 ;
 
 -- --------------------------------------------------------
 
@@ -2335,6 +2351,14 @@ CREATE TABLE IF NOT EXISTS `oc_product_to_category` (
   PRIMARY KEY (`product_id`,`category_id`),
   KEY `category_id` (`category_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `oc_product_to_category`
+--
+
+INSERT INTO `oc_product_to_category` (`product_id`, `category_id`) VALUES
+(50, 59),
+(50, 60);
 
 -- --------------------------------------------------------
 
@@ -2361,6 +2385,13 @@ CREATE TABLE IF NOT EXISTS `oc_product_to_layout` (
   PRIMARY KEY (`product_id`,`store_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `oc_product_to_layout`
+--
+
+INSERT INTO `oc_product_to_layout` (`product_id`, `store_id`, `layout_id`) VALUES
+(50, 0, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -2378,7 +2409,7 @@ CREATE TABLE IF NOT EXISTS `oc_product_to_store` (
 --
 
 INSERT INTO `oc_product_to_store` (`product_id`, `store_id`) VALUES
-(30, 0);
+(50, 0);
 
 -- --------------------------------------------------------
 
@@ -2562,7 +2593,7 @@ CREATE TABLE IF NOT EXISTS `oc_setting` (
   `value` text NOT NULL,
   `serialized` tinyint(1) NOT NULL,
   PRIMARY KEY (`setting_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=400 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=864 ;
 
 --
 -- Dumping data for table `oc_setting`
@@ -2598,126 +2629,126 @@ INSERT INTO `oc_setting` (`setting_id`, `store_id`, `code`, `key`, `value`, `ser
 (146, 0, 'category', 'category_status', '1', 0),
 (158, 0, 'account', 'account_status', '1', 0),
 (159, 0, 'affiliate', 'affiliate_status', '1', 0),
-(375, 0, 'config', 'config_mail_smtp_hostname', '', 0),
-(376, 0, 'config', 'config_mail_smtp_username', '', 0),
-(377, 0, 'config', 'config_mail_smtp_password', '', 0),
-(378, 0, 'config', 'config_mail_smtp_port', '25', 0),
-(379, 0, 'config', 'config_mail_smtp_timeout', '5', 0),
-(380, 0, 'config', 'config_mail_alert', '', 0),
-(381, 0, 'config', 'config_secure', '0', 0),
-(382, 0, 'config', 'config_shared', '0', 0),
-(383, 0, 'config', 'config_robots', 'abot\r\ndbot\r\nebot\r\nhbot\r\nkbot\r\nlbot\r\nmbot\r\nnbot\r\nobot\r\npbot\r\nrbot\r\nsbot\r\ntbot\r\nvbot\r\nybot\r\nzbot\r\nbot.\r\nbot/\r\n_bot\r\n.bot\r\n/bot\r\n-bot\r\n:bot\r\n(bot\r\ncrawl\r\nslurp\r\nspider\r\nseek\r\naccoona\r\nacoon\r\nadressendeutschland\r\nah-ha.com\r\nahoy\r\naltavista\r\nananzi\r\nanthill\r\nappie\r\narachnophilia\r\narale\r\naraneo\r\naranha\r\narchitext\r\naretha\r\narks\r\nasterias\r\natlocal\r\natn\r\natomz\r\naugurfind\r\nbackrub\r\nbannana_bot\r\nbaypup\r\nbdfetch\r\nbig brother\r\nbiglotron\r\nbjaaland\r\nblackwidow\r\nblaiz\r\nblog\r\nblo.\r\nbloodhound\r\nboitho\r\nbooch\r\nbradley\r\nbutterfly\r\ncalif\r\ncassandra\r\nccubee\r\ncfetch\r\ncharlotte\r\nchurl\r\ncienciaficcion\r\ncmc\r\ncollective\r\ncomagent\r\ncombine\r\ncomputingsite\r\ncsci\r\ncurl\r\ncusco\r\ndaumoa\r\ndeepindex\r\ndelorie\r\ndepspid\r\ndeweb\r\ndie blinde kuh\r\ndigger\r\nditto\r\ndmoz\r\ndocomo\r\ndownload express\r\ndtaagent\r\ndwcp\r\nebiness\r\nebingbong\r\ne-collector\r\nejupiter\r\nemacs-w3 search engine\r\nesther\r\nevliya celebi\r\nezresult\r\nfalcon\r\nfelix ide\r\nferret\r\nfetchrover\r\nfido\r\nfindlinks\r\nfireball\r\nfish search\r\nfouineur\r\nfunnelweb\r\ngazz\r\ngcreep\r\ngenieknows\r\ngetterroboplus\r\ngeturl\r\nglx\r\ngoforit\r\ngolem\r\ngrabber\r\ngrapnel\r\ngralon\r\ngriffon\r\ngromit\r\ngrub\r\ngulliver\r\nhamahakki\r\nharvest\r\nhavindex\r\nhelix\r\nheritrix\r\nhku www octopus\r\nhomerweb\r\nhtdig\r\nhtml index\r\nhtml_analyzer\r\nhtmlgobble\r\nhubater\r\nhyper-decontextualizer\r\nia_archiver\r\nibm_planetwide\r\nichiro\r\niconsurf\r\niltrovatore\r\nimage.kapsi.net\r\nimagelock\r\nincywincy\r\nindexer\r\ninfobee\r\ninformant\r\ningrid\r\ninktomisearch.com\r\ninspector web\r\nintelliagent\r\ninternet shinchakubin\r\nip3000\r\niron33\r\nisraeli-search\r\nivia\r\njack\r\njakarta\r\njavabee\r\njetbot\r\njumpstation\r\nkatipo\r\nkdd-explorer\r\nkilroy\r\nknowledge\r\nkototoi\r\nkretrieve\r\nlabelgrabber\r\nlachesis\r\nlarbin\r\nlegs\r\nlibwww\r\nlinkalarm\r\nlink validator\r\nlinkscan\r\nlockon\r\nlwp\r\nlycos\r\nmagpie\r\nmantraagent\r\nmapoftheinternet\r\nmarvin/\r\nmattie\r\nmediafox\r\nmediapartners\r\nmercator\r\nmerzscope\r\nmicrosoft url control\r\nminirank\r\nmiva\r\nmj12\r\nmnogosearch\r\nmoget\r\nmonster\r\nmoose\r\nmotor\r\nmultitext\r\nmuncher\r\nmuscatferret\r\nmwd.search\r\nmyweb\r\nnajdi\r\nnameprotect\r\nnationaldirectory\r\nnazilla\r\nncsa beta\r\nnec-meshexplorer\r\nnederland.zoek\r\nnetcarta webmap engine\r\nnetmechanic\r\nnetresearchserver\r\nnetscoop\r\nnewscan-online\r\nnhse\r\nnokia6682/\r\nnomad\r\nnoyona\r\nnutch\r\nnzexplorer\r\nobjectssearch\r\noccam\r\nomni\r\nopen text\r\nopenfind\r\nopenintelligencedata\r\norb search\r\nosis-project\r\npack rat\r\npageboy\r\npagebull\r\npage_verifier\r\npanscient\r\nparasite\r\npartnersite\r\npatric\r\npear.\r\npegasus\r\nperegrinator\r\npgp key agent\r\nphantom\r\nphpdig\r\npicosearch\r\npiltdownman\r\npimptrain\r\npinpoint\r\npioneer\r\npiranha\r\nplumtreewebaccessor\r\npogodak\r\npoirot\r\npompos\r\npoppelsdorf\r\npoppi\r\npopular iconoclast\r\npsycheclone\r\npublisher\r\npython\r\nrambler\r\nraven search\r\nroach\r\nroad runner\r\nroadhouse\r\nrobbie\r\nrobofox\r\nrobozilla\r\nrules\r\nsalty\r\nsbider\r\nscooter\r\nscoutjet\r\nscrubby\r\nsearch.\r\nsearchprocess\r\nsemanticdiscovery\r\nsenrigan\r\nsg-scout\r\nshai''hulud\r\nshark\r\nshopwiki\r\nsidewinder\r\nsift\r\nsilk\r\nsimmany\r\nsite searcher\r\nsite valet\r\nsitetech-rover\r\nskymob.com\r\nsleek\r\nsmartwit\r\nsna-\r\nsnappy\r\nsnooper\r\nsohu\r\nspeedfind\r\nsphere\r\nsphider\r\nspinner\r\nspyder\r\nsteeler/\r\nsuke\r\nsuntek\r\nsupersnooper\r\nsurfnomore\r\nsven\r\nsygol\r\nszukacz\r\ntach black widow\r\ntarantula\r\ntempleton\r\n/teoma\r\nt-h-u-n-d-e-r-s-t-o-n-e\r\ntheophrastus\r\ntitan\r\ntitin\r\ntkwww\r\ntoutatis\r\nt-rex\r\ntutorgig\r\ntwiceler\r\ntwisted\r\nucsd\r\nudmsearch\r\nurl check\r\nupdated\r\nvagabondo\r\nvalkyrie\r\nverticrawl\r\nvictoria\r\nvision-search\r\nvolcano\r\nvoyager/\r\nvoyager-hc\r\nw3c_validator\r\nw3m2\r\nw3mir\r\nwalker\r\nwallpaper\r\nwanderer\r\nwauuu\r\nwavefire\r\nweb core\r\nweb hopper\r\nweb wombat\r\nwebbandit\r\nwebcatcher\r\nwebcopy\r\nwebfoot\r\nweblayers\r\nweblinker\r\nweblog monitor\r\nwebmirror\r\nwebmonkey\r\nwebquest\r\nwebreaper\r\nwebsitepulse\r\nwebsnarf\r\nwebstolperer\r\nwebvac\r\nwebwalk\r\nwebwatch\r\nwebwombat\r\nwebzinger\r\nwhizbang\r\nwhowhere\r\nwild ferret\r\nworldlight\r\nwwwc\r\nwwwster\r\nxenu\r\nxget\r\nxift\r\nxirq\r\nyandex\r\nyanga\r\nyeti\r\nyodao\r\nzao\r\nzippp\r\nzyborg', 0),
-(374, 0, 'config', 'config_mail_parameter', '', 0),
-(373, 0, 'config', 'config_mail_protocol', 'mail', 0),
-(372, 0, 'config', 'config_ftp_status', '0', 0),
+(861, 0, 'config', 'config_google_captcha_public', '', 0),
+(860, 0, 'config', 'config_google_analytics_status', '0', 0),
+(859, 0, 'config', 'config_google_analytics', '', 0),
+(858, 0, 'config', 'config_error_filename', 'error.log', 0),
+(857, 0, 'config', 'config_error_log', '1', 0),
+(856, 0, 'config', 'config_error_display', '1', 0),
+(855, 0, 'config', 'config_compression', '0', 0),
+(854, 0, 'config', 'config_encryption', '411ff8f816249e10f10a22aaaa287f3c', 0),
+(853, 0, 'config', 'config_password', '1', 0),
+(843, 0, 'config', 'config_mail_smtp_timeout', '5', 0),
+(844, 0, 'config', 'config_mail_alert', '', 0),
+(845, 0, 'config', 'config_secure', '0', 0),
+(846, 0, 'config', 'config_shared', '0', 0),
+(847, 0, 'config', 'config_robots', 'abot\r\ndbot\r\nebot\r\nhbot\r\nkbot\r\nlbot\r\nmbot\r\nnbot\r\nobot\r\npbot\r\nrbot\r\nsbot\r\ntbot\r\nvbot\r\nybot\r\nzbot\r\nbot.\r\nbot/\r\n_bot\r\n.bot\r\n/bot\r\n-bot\r\n:bot\r\n(bot\r\ncrawl\r\nslurp\r\nspider\r\nseek\r\naccoona\r\nacoon\r\nadressendeutschland\r\nah-ha.com\r\nahoy\r\naltavista\r\nananzi\r\nanthill\r\nappie\r\narachnophilia\r\narale\r\naraneo\r\naranha\r\narchitext\r\naretha\r\narks\r\nasterias\r\natlocal\r\natn\r\natomz\r\naugurfind\r\nbackrub\r\nbannana_bot\r\nbaypup\r\nbdfetch\r\nbig brother\r\nbiglotron\r\nbjaaland\r\nblackwidow\r\nblaiz\r\nblog\r\nblo.\r\nbloodhound\r\nboitho\r\nbooch\r\nbradley\r\nbutterfly\r\ncalif\r\ncassandra\r\nccubee\r\ncfetch\r\ncharlotte\r\nchurl\r\ncienciaficcion\r\ncmc\r\ncollective\r\ncomagent\r\ncombine\r\ncomputingsite\r\ncsci\r\ncurl\r\ncusco\r\ndaumoa\r\ndeepindex\r\ndelorie\r\ndepspid\r\ndeweb\r\ndie blinde kuh\r\ndigger\r\nditto\r\ndmoz\r\ndocomo\r\ndownload express\r\ndtaagent\r\ndwcp\r\nebiness\r\nebingbong\r\ne-collector\r\nejupiter\r\nemacs-w3 search engine\r\nesther\r\nevliya celebi\r\nezresult\r\nfalcon\r\nfelix ide\r\nferret\r\nfetchrover\r\nfido\r\nfindlinks\r\nfireball\r\nfish search\r\nfouineur\r\nfunnelweb\r\ngazz\r\ngcreep\r\ngenieknows\r\ngetterroboplus\r\ngeturl\r\nglx\r\ngoforit\r\ngolem\r\ngrabber\r\ngrapnel\r\ngralon\r\ngriffon\r\ngromit\r\ngrub\r\ngulliver\r\nhamahakki\r\nharvest\r\nhavindex\r\nhelix\r\nheritrix\r\nhku www octopus\r\nhomerweb\r\nhtdig\r\nhtml index\r\nhtml_analyzer\r\nhtmlgobble\r\nhubater\r\nhyper-decontextualizer\r\nia_archiver\r\nibm_planetwide\r\nichiro\r\niconsurf\r\niltrovatore\r\nimage.kapsi.net\r\nimagelock\r\nincywincy\r\nindexer\r\ninfobee\r\ninformant\r\ningrid\r\ninktomisearch.com\r\ninspector web\r\nintelliagent\r\ninternet shinchakubin\r\nip3000\r\niron33\r\nisraeli-search\r\nivia\r\njack\r\njakarta\r\njavabee\r\njetbot\r\njumpstation\r\nkatipo\r\nkdd-explorer\r\nkilroy\r\nknowledge\r\nkototoi\r\nkretrieve\r\nlabelgrabber\r\nlachesis\r\nlarbin\r\nlegs\r\nlibwww\r\nlinkalarm\r\nlink validator\r\nlinkscan\r\nlockon\r\nlwp\r\nlycos\r\nmagpie\r\nmantraagent\r\nmapoftheinternet\r\nmarvin/\r\nmattie\r\nmediafox\r\nmediapartners\r\nmercator\r\nmerzscope\r\nmicrosoft url control\r\nminirank\r\nmiva\r\nmj12\r\nmnogosearch\r\nmoget\r\nmonster\r\nmoose\r\nmotor\r\nmultitext\r\nmuncher\r\nmuscatferret\r\nmwd.search\r\nmyweb\r\nnajdi\r\nnameprotect\r\nnationaldirectory\r\nnazilla\r\nncsa beta\r\nnec-meshexplorer\r\nnederland.zoek\r\nnetcarta webmap engine\r\nnetmechanic\r\nnetresearchserver\r\nnetscoop\r\nnewscan-online\r\nnhse\r\nnokia6682/\r\nnomad\r\nnoyona\r\nnutch\r\nnzexplorer\r\nobjectssearch\r\noccam\r\nomni\r\nopen text\r\nopenfind\r\nopenintelligencedata\r\norb search\r\nosis-project\r\npack rat\r\npageboy\r\npagebull\r\npage_verifier\r\npanscient\r\nparasite\r\npartnersite\r\npatric\r\npear.\r\npegasus\r\nperegrinator\r\npgp key agent\r\nphantom\r\nphpdig\r\npicosearch\r\npiltdownman\r\npimptrain\r\npinpoint\r\npioneer\r\npiranha\r\nplumtreewebaccessor\r\npogodak\r\npoirot\r\npompos\r\npoppelsdorf\r\npoppi\r\npopular iconoclast\r\npsycheclone\r\npublisher\r\npython\r\nrambler\r\nraven search\r\nroach\r\nroad runner\r\nroadhouse\r\nrobbie\r\nrobofox\r\nrobozilla\r\nrules\r\nsalty\r\nsbider\r\nscooter\r\nscoutjet\r\nscrubby\r\nsearch.\r\nsearchprocess\r\nsemanticdiscovery\r\nsenrigan\r\nsg-scout\r\nshai''hulud\r\nshark\r\nshopwiki\r\nsidewinder\r\nsift\r\nsilk\r\nsimmany\r\nsite searcher\r\nsite valet\r\nsitetech-rover\r\nskymob.com\r\nsleek\r\nsmartwit\r\nsna-\r\nsnappy\r\nsnooper\r\nsohu\r\nspeedfind\r\nsphere\r\nsphider\r\nspinner\r\nspyder\r\nsteeler/\r\nsuke\r\nsuntek\r\nsupersnooper\r\nsurfnomore\r\nsven\r\nsygol\r\nszukacz\r\ntach black widow\r\ntarantula\r\ntempleton\r\n/teoma\r\nt-h-u-n-d-e-r-s-t-o-n-e\r\ntheophrastus\r\ntitan\r\ntitin\r\ntkwww\r\ntoutatis\r\nt-rex\r\ntutorgig\r\ntwiceler\r\ntwisted\r\nucsd\r\nudmsearch\r\nurl check\r\nupdated\r\nvagabondo\r\nvalkyrie\r\nverticrawl\r\nvictoria\r\nvision-search\r\nvolcano\r\nvoyager/\r\nvoyager-hc\r\nw3c_validator\r\nw3m2\r\nw3mir\r\nwalker\r\nwallpaper\r\nwanderer\r\nwauuu\r\nwavefire\r\nweb core\r\nweb hopper\r\nweb wombat\r\nwebbandit\r\nwebcatcher\r\nwebcopy\r\nwebfoot\r\nweblayers\r\nweblinker\r\nweblog monitor\r\nwebmirror\r\nwebmonkey\r\nwebquest\r\nwebreaper\r\nwebsitepulse\r\nwebsnarf\r\nwebstolperer\r\nwebvac\r\nwebwalk\r\nwebwatch\r\nwebwombat\r\nwebzinger\r\nwhizbang\r\nwhowhere\r\nwild ferret\r\nworldlight\r\nwwwc\r\nwwwster\r\nxenu\r\nxget\r\nxift\r\nxirq\r\nyandex\r\nyanga\r\nyeti\r\nyodao\r\nzao\r\nzippp\r\nzyborg', 0),
+(852, 0, 'config', 'config_maintenance', '0', 0),
+(850, 0, 'config', 'config_file_ext_allowed', 'zip\r\ntxt\r\npng\r\njpe\r\njpeg\r\njpg\r\ngif\r\nbmp\r\nico\r\ntiff\r\ntif\r\nsvg\r\nsvgz\r\nzip\r\nrar\r\nmsi\r\ncab\r\nmp3\r\nqt\r\nmov\r\npdf\r\npsd\r\nai\r\neps\r\nps\r\ndoc', 0),
+(851, 0, 'config', 'config_file_mime_allowed', 'text/plain\r\nimage/png\r\nimage/jpeg\r\nimage/gif\r\nimage/bmp\r\nimage/tiff\r\nimage/svg+xml\r\napplication/zip\r\n&quot;application/zip&quot;\r\napplication/x-zip\r\n&quot;application/x-zip&quot;\r\napplication/x-zip-compressed\r\n&quot;application/x-zip-compressed&quot;\r\napplication/rar\r\n&quot;application/rar&quot;\r\napplication/x-rar\r\n&quot;application/x-rar&quot;\r\napplication/x-rar-compressed\r\n&quot;application/x-rar-compressed&quot;\r\napplication/octet-stream\r\n&quot;application/octet-stream&quot;\r\naudio/mpeg\r\nvideo/quicktime\r\napplication/pdf', 0),
 (94, 0, 'voucher', 'voucher_sort_order', '8', 0),
 (95, 0, 'voucher', 'voucher_status', '1', 0),
-(371, 0, 'config', 'config_ftp_root', '', 0),
-(370, 0, 'config', 'config_ftp_password', '', 0),
 (103, 0, 'free_checkout', 'free_checkout_status', '1', 0),
 (104, 0, 'free_checkout', 'free_checkout_order_status_id', '1', 0),
-(366, 0, 'config', 'config_image_location_height', '50', 0),
-(367, 0, 'config', 'config_ftp_hostname', 'localhost', 0),
-(368, 0, 'config', 'config_ftp_port', '21', 0),
-(369, 0, 'config', 'config_ftp_username', '', 0),
-(365, 0, 'config', 'config_image_location_width', '268', 0),
-(364, 0, 'config', 'config_image_cart_height', '47', 0),
-(363, 0, 'config', 'config_image_cart_width', '47', 0),
-(362, 0, 'config', 'config_image_wishlist_height', '47', 0),
-(361, 0, 'config', 'config_image_wishlist_width', '47', 0),
-(360, 0, 'config', 'config_image_compare_height', '90', 0),
-(359, 0, 'config', 'config_image_compare_width', '90', 0),
-(358, 0, 'config', 'config_image_related_height', '80', 0),
-(357, 0, 'config', 'config_image_related_width', '80', 0),
-(356, 0, 'config', 'config_image_additional_height', '74', 0),
-(355, 0, 'config', 'config_image_additional_width', '74', 0),
-(354, 0, 'config', 'config_image_product_height', '228', 0),
-(353, 0, 'config', 'config_image_product_width', '228', 0),
-(352, 0, 'config', 'config_image_popup_height', '500', 0),
-(351, 0, 'config', 'config_image_popup_width', '500', 0),
-(350, 0, 'config', 'config_image_thumb_height', '228', 0),
-(349, 0, 'config', 'config_image_thumb_width', '228', 0),
-(348, 0, 'config', 'config_image_category_height', '80', 0),
-(347, 0, 'config', 'config_image_category_width', '80', 0),
-(346, 0, 'config', 'config_icon', 'catalog/cart.png', 0),
-(345, 0, 'config', 'config_logo', 'catalog/logo.png', 0),
-(344, 0, 'config', 'config_return_status_id', '2', 0),
-(343, 0, 'config', 'config_return_id', '0', 0),
-(342, 0, 'config', 'config_affiliate_mail', '0', 0),
-(341, 0, 'config', 'config_affiliate_id', '4', 0),
-(340, 0, 'config', 'config_affiliate_commission', '5', 0),
-(339, 0, 'config', 'config_affiliate_auto', '0', 0),
-(338, 0, 'config', 'config_affiliate_approval', '0', 0),
-(337, 0, 'config', 'config_stock_checkout', '0', 0),
-(336, 0, 'config', 'config_stock_warning', '0', 0),
-(335, 0, 'config', 'config_stock_display', '0', 0),
-(334, 0, 'config', 'config_order_mail', '0', 0),
-(333, 0, 'config', 'config_complete_status', 'a:1:{i:0;s:1:"5";}', 1),
-(332, 0, 'config', 'config_processing_status', 'a:1:{i:0;s:1:"2";}', 1),
-(331, 0, 'config', 'config_order_status_id', '1', 0),
-(330, 0, 'config', 'config_checkout_id', '5', 0),
-(329, 0, 'config', 'config_checkout_guest', '1', 0),
-(328, 0, 'config', 'config_cart_weight', '1', 0),
-(327, 0, 'config', 'config_api_id', '1', 0),
-(326, 0, 'config', 'config_invoice_prefix', 'INV-2013-00', 0),
-(325, 0, 'config', 'config_account_mail', '0', 0),
-(324, 0, 'config', 'config_account_id', '3', 0),
-(323, 0, 'config', 'config_login_attempts', '5', 0),
-(322, 0, 'config', 'config_customer_price', '0', 0),
-(321, 0, 'config', 'config_customer_group_display', 'a:1:{i:0;s:1:"1";}', 1),
-(320, 0, 'config', 'config_customer_group_id', '1', 0),
-(319, 0, 'config', 'config_customer_online', '0', 0),
-(318, 0, 'config', 'config_tax_customer', 'shipping', 0),
-(317, 0, 'config', 'config_tax_default', 'shipping', 0),
-(316, 0, 'config', 'config_tax', '1', 0),
-(315, 0, 'config', 'config_voucher_max', '1000', 0),
-(314, 0, 'config', 'config_voucher_min', '1', 0),
-(313, 0, 'config', 'config_review_mail', '0', 0),
-(312, 0, 'config', 'config_review_guest', '1', 0),
-(311, 0, 'config', 'config_review_status', '1', 0),
-(310, 0, 'config', 'config_limit_admin', '20', 0),
-(309, 0, 'config', 'config_product_description_length', '100', 0),
-(308, 0, 'config', 'config_product_limit', '15', 0),
-(307, 0, 'config', 'config_product_count', '1', 0),
-(306, 0, 'config', 'config_weight_class_id', '1', 0),
-(303, 0, 'config', 'config_currency', 'USD', 0),
-(304, 0, 'config', 'config_currency_auto', '1', 0),
-(305, 0, 'config', 'config_length_class_id', '1', 0),
-(292, 0, 'config', 'config_open', '', 0),
-(293, 0, 'config', 'config_comment', '', 0),
-(294, 0, 'config', 'config_meta_title', 'Your Store', 0),
-(295, 0, 'config', 'config_meta_description', 'My Store', 0),
-(296, 0, 'config', 'config_meta_keyword', '', 0),
-(297, 0, 'config', 'config_template', 'default', 0),
-(298, 0, 'config', 'config_layout_id', '4', 0),
-(299, 0, 'config', 'config_country_id', '222', 0),
-(300, 0, 'config', 'config_zone_id', '3563', 0),
-(301, 0, 'config', 'config_language', 'en', 0),
-(302, 0, 'config', 'config_admin_language', 'en', 0),
-(291, 0, 'config', 'config_image', '', 0),
-(290, 0, 'config', 'config_fax', '', 0),
-(289, 0, 'config', 'config_telephone', '123456789', 0),
-(288, 0, 'config', 'config_email', 'rhodrialunjames@hotmail.com', 0),
-(287, 0, 'config', 'config_geocode', '', 0),
-(286, 0, 'config', 'config_address', 'Address 1', 0),
-(285, 0, 'config', 'config_owner', 'Your Name', 0),
-(284, 0, 'config', 'config_name', 'Your Store', 0),
-(384, 0, 'config', 'config_seo_url', '1', 0),
-(385, 0, 'config', 'config_file_max_size', '300000', 0),
-(386, 0, 'config', 'config_file_ext_allowed', 'zip\r\ntxt\r\npng\r\njpe\r\njpeg\r\njpg\r\ngif\r\nbmp\r\nico\r\ntiff\r\ntif\r\nsvg\r\nsvgz\r\nzip\r\nrar\r\nmsi\r\ncab\r\nmp3\r\nqt\r\nmov\r\npdf\r\npsd\r\nai\r\neps\r\nps\r\ndoc', 0),
-(387, 0, 'config', 'config_file_mime_allowed', 'text/plain\r\nimage/png\r\nimage/jpeg\r\nimage/gif\r\nimage/bmp\r\nimage/tiff\r\nimage/svg+xml\r\napplication/zip\r\n&quot;application/zip&quot;\r\napplication/x-zip\r\n&quot;application/x-zip&quot;\r\napplication/x-zip-compressed\r\n&quot;application/x-zip-compressed&quot;\r\napplication/rar\r\n&quot;application/rar&quot;\r\napplication/x-rar\r\n&quot;application/x-rar&quot;\r\napplication/x-rar-compressed\r\n&quot;application/x-rar-compressed&quot;\r\napplication/octet-stream\r\n&quot;application/octet-stream&quot;\r\naudio/mpeg\r\nvideo/quicktime\r\napplication/pdf', 0),
-(388, 0, 'config', 'config_maintenance', '0', 0),
-(389, 0, 'config', 'config_password', '1', 0),
-(390, 0, 'config', 'config_encryption', '411ff8f816249e10f10a22aaaa287f3c', 0),
-(391, 0, 'config', 'config_compression', '0', 0),
-(392, 0, 'config', 'config_error_display', '1', 0),
-(393, 0, 'config', 'config_error_log', '1', 0),
-(394, 0, 'config', 'config_error_filename', 'error.log', 0),
-(395, 0, 'config', 'config_google_analytics', '', 0),
-(396, 0, 'config', 'config_google_analytics_status', '0', 0),
-(397, 0, 'config', 'config_google_captcha_public', '', 0),
-(398, 0, 'config', 'config_google_captcha_secret', '', 0),
-(399, 0, 'config', 'config_google_captcha_status', '0', 0);
+(848, 0, 'config', 'config_seo_url', '1', 0),
+(849, 0, 'config', 'config_file_max_size', '300000', 0),
+(842, 0, 'config', 'config_mail_smtp_port', '25', 0),
+(840, 0, 'config', 'config_mail_smtp_username', '', 0),
+(841, 0, 'config', 'config_mail_smtp_password', '', 0),
+(839, 0, 'config', 'config_mail_smtp_hostname', '', 0),
+(838, 0, 'config', 'config_mail_parameter', '', 0),
+(837, 0, 'config', 'config_mail_protocol', 'mail', 0),
+(836, 0, 'config', 'config_ftp_status', '0', 0),
+(834, 0, 'config', 'config_ftp_password', '', 0),
+(835, 0, 'config', 'config_ftp_root', '', 0),
+(833, 0, 'config', 'config_ftp_username', '', 0),
+(832, 0, 'config', 'config_ftp_port', '21', 0),
+(831, 0, 'config', 'config_ftp_hostname', 'localhost', 0),
+(830, 0, 'config', 'config_image_location_height', '50', 0),
+(829, 0, 'config', 'config_image_location_width', '268', 0),
+(828, 0, 'config', 'config_image_cart_height', '47', 0),
+(827, 0, 'config', 'config_image_cart_width', '47', 0),
+(826, 0, 'config', 'config_image_wishlist_height', '47', 0),
+(825, 0, 'config', 'config_image_wishlist_width', '47', 0),
+(823, 0, 'config', 'config_image_compare_width', '90', 0),
+(824, 0, 'config', 'config_image_compare_height', '90', 0),
+(822, 0, 'config', 'config_image_related_height', '80', 0),
+(821, 0, 'config', 'config_image_related_width', '80', 0),
+(820, 0, 'config', 'config_image_additional_height', '74', 0),
+(818, 0, 'config', 'config_image_product_height', '228', 0),
+(819, 0, 'config', 'config_image_additional_width', '74', 0),
+(817, 0, 'config', 'config_image_product_width', '228', 0),
+(816, 0, 'config', 'config_image_popup_height', '600', 0),
+(815, 0, 'config', 'config_image_popup_width', '800', 0),
+(814, 0, 'config', 'config_image_thumb_height', '300', 0),
+(813, 0, 'config', 'config_image_thumb_width', '450', 0),
+(812, 0, 'config', 'config_image_category_height', '80', 0),
+(811, 0, 'config', 'config_image_category_width', '80', 0),
+(810, 0, 'config', 'config_icon', 'catalog/cart.png', 0),
+(809, 0, 'config', 'config_logo', 'catalog/logo.png', 0),
+(808, 0, 'config', 'config_return_status_id', '2', 0),
+(807, 0, 'config', 'config_return_id', '0', 0),
+(806, 0, 'config', 'config_affiliate_mail', '0', 0),
+(805, 0, 'config', 'config_affiliate_id', '4', 0),
+(804, 0, 'config', 'config_affiliate_commission', '5', 0),
+(803, 0, 'config', 'config_affiliate_auto', '0', 0),
+(802, 0, 'config', 'config_affiliate_approval', '0', 0),
+(801, 0, 'config', 'config_stock_checkout', '0', 0),
+(800, 0, 'config', 'config_stock_warning', '0', 0),
+(799, 0, 'config', 'config_stock_display', '0', 0),
+(798, 0, 'config', 'config_order_mail', '0', 0),
+(797, 0, 'config', 'config_complete_status', 'a:1:{i:0;s:1:"5";}', 1),
+(796, 0, 'config', 'config_processing_status', 'a:1:{i:0;s:1:"2";}', 1),
+(795, 0, 'config', 'config_order_status_id', '1', 0),
+(793, 0, 'config', 'config_checkout_guest', '1', 0),
+(794, 0, 'config', 'config_checkout_id', '5', 0),
+(792, 0, 'config', 'config_cart_weight', '1', 0),
+(791, 0, 'config', 'config_api_id', '1', 0),
+(790, 0, 'config', 'config_invoice_prefix', 'INV-2013-00', 0),
+(789, 0, 'config', 'config_account_mail', '0', 0),
+(788, 0, 'config', 'config_account_id', '3', 0),
+(787, 0, 'config', 'config_login_attempts', '5', 0),
+(786, 0, 'config', 'config_customer_price', '0', 0),
+(785, 0, 'config', 'config_customer_group_display', 'a:1:{i:0;s:1:"1";}', 1),
+(784, 0, 'config', 'config_customer_group_id', '1', 0),
+(783, 0, 'config', 'config_customer_online', '0', 0),
+(782, 0, 'config', 'config_tax_customer', 'shipping', 0),
+(781, 0, 'config', 'config_tax_default', 'shipping', 0),
+(780, 0, 'config', 'config_tax', '1', 0),
+(779, 0, 'config', 'config_voucher_max', '1000', 0),
+(778, 0, 'config', 'config_voucher_min', '1', 0),
+(777, 0, 'config', 'config_review_mail', '0', 0),
+(776, 0, 'config', 'config_review_guest', '1', 0),
+(775, 0, 'config', 'config_review_status', '1', 0),
+(774, 0, 'config', 'config_limit_admin', '20', 0),
+(773, 0, 'config', 'config_product_description_length', '100', 0),
+(772, 0, 'config', 'config_product_limit', '15', 0),
+(771, 0, 'config', 'config_product_count', '1', 0),
+(770, 0, 'config', 'config_weight_class_id', '1', 0),
+(769, 0, 'config', 'config_length_class_id', '1', 0),
+(768, 0, 'config', 'config_currency_auto', '1', 0),
+(767, 0, 'config', 'config_currency', 'GBP', 0),
+(766, 0, 'config', 'config_admin_language', 'en', 0),
+(765, 0, 'config', 'config_language', 'en', 0),
+(764, 0, 'config', 'config_zone_id', '3603', 0),
+(763, 0, 'config', 'config_country_id', '222', 0),
+(762, 0, 'config', 'config_layout_id', '4', 0),
+(761, 0, 'config', 'config_template', 'default', 0),
+(760, 0, 'config', 'config_meta_keyword', '', 0),
+(759, 0, 'config', 'config_meta_description', 'My Store', 0),
+(758, 0, 'config', 'config_meta_title', 'Your Store', 0),
+(757, 0, 'config', 'config_comment', '', 0),
+(756, 0, 'config', 'config_open', '', 0),
+(755, 0, 'config', 'config_image', '', 0),
+(754, 0, 'config', 'config_fax', '', 0),
+(753, 0, 'config', 'config_telephone', '123456789', 0),
+(752, 0, 'config', 'config_email', 'rhodrialunjames@hotmail.com', 0),
+(751, 0, 'config', 'config_geocode', 'UK Shipping', 0),
+(750, 0, 'config', 'config_address', 'Address 1\r\nAddress 2', 0),
+(749, 0, 'config', 'config_owner', 'Rhodri James', 0),
+(748, 0, 'config', 'config_name', 'Rhods Collectables', 0),
+(862, 0, 'config', 'config_google_captcha_secret', '', 0),
+(863, 0, 'config', 'config_google_captcha_status', '0', 0);
 
 -- --------------------------------------------------------
 
@@ -2730,7 +2761,7 @@ CREATE TABLE IF NOT EXISTS `oc_stock_status` (
   `language_id` int(11) NOT NULL,
   `name` varchar(32) NOT NULL,
   PRIMARY KEY (`stock_status_id`,`language_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `oc_stock_status`
@@ -2739,8 +2770,8 @@ CREATE TABLE IF NOT EXISTS `oc_stock_status` (
 INSERT INTO `oc_stock_status` (`stock_status_id`, `language_id`, `name`) VALUES
 (7, 1, 'In Stock'),
 (8, 1, 'Pre-Order'),
-(5, 1, 'Out Of Stock'),
-(6, 1, '2-3 Days');
+(5, 1, 'Sold Out'),
+(9, 1, 'Reserved');
 
 -- --------------------------------------------------------
 
@@ -2776,7 +2807,7 @@ CREATE TABLE IF NOT EXISTS `oc_tax_class` (
 --
 
 INSERT INTO `oc_tax_class` (`tax_class_id`, `title`, `description`, `date_added`, `date_modified`) VALUES
-(9, 'Taxable Goods', 'Taxed goods', '2009-01-06 23:21:53', '2011-09-23 14:07:50'),
+(9, 'Taxable Goods', 'Taxed goods', '2009-01-06 23:21:53', '2015-09-26 15:05:18'),
 (10, 'Downloadable Products', 'Downloadable', '2011-09-21 22:19:39', '2011-09-22 10:27:36');
 
 -- --------------------------------------------------------
@@ -2837,7 +2868,7 @@ CREATE TABLE IF NOT EXISTS `oc_tax_rule` (
   `based` varchar(10) NOT NULL,
   `priority` int(5) NOT NULL DEFAULT '1',
   PRIMARY KEY (`tax_rule_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=129 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=131 ;
 
 --
 -- Dumping data for table `oc_tax_rule`
@@ -2846,8 +2877,7 @@ CREATE TABLE IF NOT EXISTS `oc_tax_rule` (
 INSERT INTO `oc_tax_rule` (`tax_rule_id`, `tax_class_id`, `tax_rate_id`, `based`, `priority`) VALUES
 (121, 10, 86, 'payment', 1),
 (120, 10, 87, 'store', 0),
-(128, 9, 86, 'shipping', 1),
-(127, 9, 87, 'shipping', 2);
+(130, 9, 86, 'shipping', 1);
 
 -- --------------------------------------------------------
 
@@ -2877,7 +2907,7 @@ CREATE TABLE IF NOT EXISTS `oc_url_alias` (
   PRIMARY KEY (`url_alias_id`),
   KEY `query` (`query`),
   KEY `keyword` (`keyword`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=856 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=882 ;
 
 --
 -- Dumping data for table `oc_url_alias`
@@ -2885,22 +2915,25 @@ CREATE TABLE IF NOT EXISTS `oc_url_alias` (
 
 INSERT INTO `oc_url_alias` (`url_alias_id`, `query`, `keyword`) VALUES
 (730, 'manufacturer_id=8', 'apple'),
-(772, 'information_id=4', 'about_us'),
-(848, 'category_id=63', ''),
-(850, 'category_id=65', ''),
-(851, 'category_id=66', ''),
-(852, 'category_id=67', ''),
-(853, 'category_id=68', ''),
+(864, 'information_id=4', 'about-us'),
+(860, 'category_id=65', 'edged-weapons'),
+(868, 'category_id=66', 'swords'),
+(861, 'category_id=67', 'bayonets'),
+(862, 'category_id=68', 'knives'),
 (854, 'category_id=59', 'deactived-weapons'),
-(809, 'product_id=30', 'canon-eos-5d'),
+(857, 'category_id=61', 'pistols'),
+(858, 'category_id=60', 'rifles'),
+(870, 'category_id=63', 'sub-machine-gun'),
+(873, 'category_id=64', 'machine-guns'),
+(881, 'product_id=50', 'm1a1-paratrooper-carbine'),
 (828, 'manufacturer_id=9', 'canon'),
 (829, 'manufacturer_id=5', 'htc'),
 (830, 'manufacturer_id=7', 'hewlett-packard'),
 (831, 'manufacturer_id=6', 'palm'),
 (832, 'manufacturer_id=10', 'sony'),
-(841, 'information_id=6', 'delivery'),
-(842, 'information_id=3', 'privacy'),
-(843, 'information_id=5', 'terms');
+(865, 'information_id=6', 'delivery'),
+(866, 'information_id=3', 'privacy'),
+(867, 'information_id=5', 'terms');
 
 -- --------------------------------------------------------
 
